@@ -68,7 +68,7 @@ public class Sales extends JPanel {
         button.setBackground(new Color(0, 120, 215)); // Синий цвет
         button.setForeground(Color.WHITE);
         button.setFocusPainted(false);
-        button.setFont(new Font("SansSerif", Font.BOLD, 14));
+        button.setFont(new Font("Bahnschrift SemiBold SemiConden", Font.BOLD, 14));
         button.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(0, 80, 180)), 
             BorderFactory.createEmptyBorder(10, 20, 10, 20)
@@ -140,7 +140,7 @@ public class Sales extends JPanel {
             JOptionPane.showMessageDialog(
                 this,
                 "Ошибка загрузки данных о продажах: " + e.getMessage(),
-                "Ошибка",
+                "Упс",
                 JOptionPane.ERROR_MESSAGE
             );
         }

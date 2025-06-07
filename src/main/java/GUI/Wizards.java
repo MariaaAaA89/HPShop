@@ -60,7 +60,7 @@ public class Wizards extends JPanel {
         button.setBackground(new Color(0, 120, 215));
         button.setForeground(Color.WHITE);
         button.setFocusPainted(false);
-        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.setFont(new Font("Bahnschrift SemiBold SemiConden", Font.BOLD, 14));
         button.setPreferredSize(new Dimension(180, 35));
         button.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
         return button;
@@ -97,7 +97,7 @@ public class Wizards extends JPanel {
             JOptionPane.showMessageDialog(
                 this,
                 "Ошибка загрузки данных: " + e.getMessage(),
-                "Ошибка",
+                "Упс",
                 JOptionPane.ERROR_MESSAGE
             );
         }
@@ -121,7 +121,7 @@ public class Wizards extends JPanel {
         JLabel schoolLabel = new JLabel("Школа:");
         JTextField schoolField = new JTextField();
         
-        JLabel contactLabel = new JLabel("Контакты:");
+        JLabel contactLabel = new JLabel("Данные:");
         JTextField contactField = new JTextField();
         
         // Добавляем компоненты на панель
@@ -158,7 +158,7 @@ public class Wizards extends JPanel {
                 JOptionPane.showMessageDialog(
                     dialog,
                     "Ошибка: " + ex.getMessage(),
-                    "Ошибка",
+                    "Упс",
                     JOptionPane.ERROR_MESSAGE
                 );
             }

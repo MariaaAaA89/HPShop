@@ -43,7 +43,7 @@ public class MainFrame extends JFrame {
         tabbedPane.addTab("Отгрузка", new Delivery(dbManager));
         
         JMenuBar menuBar = new JMenuBar();
-        JMenu fileMenu = new JMenu("Файл");
+        JMenu fileMenu = new JMenu("Удалить всё");
         
         JMenuItem clearDataItem = new JMenuItem("Удалить все данные");
         clearDataItem.addActionListener(e -> clearAllData());
@@ -58,7 +58,7 @@ public class MainFrame extends JFrame {
     private void clearAllData() {
         int confirm = JOptionPane.showConfirmDialog(
             this,
-            "Удалить все данные?",
+            "Удалить всё ?",
             "Подтверждение",
             JOptionPane.YES_NO_OPTION
         );

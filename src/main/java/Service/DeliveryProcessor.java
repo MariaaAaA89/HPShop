@@ -25,11 +25,11 @@ public class DeliveryProcessor {
     }
     
     public boolean processWeeklyDelivery(JFrame parentFrame) throws SQLException {
-    List<WandComponent> lowStockComponents = dbManager.getComponentsLowStock(10);
+    List<WandComponent> lowStockComponents = dbManager.getComponentsLowStock(7);
 
     if (lowStockComponents.isEmpty()) {
         JOptionPane.showMessageDialog(parentFrame,
-            " Количество больше  10",
+            " Количество больше 7",
             "Нет компонентов для заказа",
             JOptionPane.INFORMATION_MESSAGE);
         return false;
@@ -87,7 +87,7 @@ public class DeliveryProcessor {
  
     private int calculateOrderQuantity(WandComponent component, boolean isSeasonal) {
         int baseQuantity = isSeasonal ? 50 : 20;
-    return Math.max(baseQuantity - component.getQuantity(), 10);
+    return Math.max(baseQuantity - component.getQuantity(), 7);
     }
 
     public boolean isSummerSeason() {

@@ -90,7 +90,7 @@ public class Delivery extends JPanel {
     button.setFocusPainted(false);
     button.setFont(new Font("Bahnschrift SemiBold SemiConden", Font.BOLD, 14));
     button.setBorder(BorderFactory.createCompoundBorder(
-        BorderFactory.createLineBorder(new Color(0, 80, 180)), // Добавлена закрывающая скобка
+        BorderFactory.createLineBorder(new Color(0, 80, 180)), 
         BorderFactory.createEmptyBorder(10, 20, 10, 20)
     ));
     
@@ -123,11 +123,11 @@ public class Delivery extends JPanel {
         
         JTable itemsTable = new JTable();
         itemsTable.setRowHeight(35);
-        itemsTable.setFont(new Font("SansSerif", Font.PLAIN, 14));
+        itemsTable.setFont(new Font("Bahnschrift SemiBold SemiConden", Font.PLAIN, 14));
         itemsTable.setFillsViewportHeight(true);
         itemsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
-        // Настройка ширины столбцов
+       
         itemsTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         
         showDeliveryItems(deliveryId, itemsTable);
@@ -183,7 +183,7 @@ public class Delivery extends JPanel {
             JOptionPane.showMessageDialog(
                 this,
                 "Ошибка загрузки поставок: " + e.getMessage(),
-                "Ошибка",
+                "Упс",
                 JOptionPane.ERROR_MESSAGE
             );
         }
@@ -199,13 +199,13 @@ public class Delivery extends JPanel {
                 loadDeliveries();
                 JOptionPane.showMessageDialog(this, 
                     "Недельная поставка создана!",
-                    "Успех",
+                    "Ура",
                     JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this,
                 "Ошибка при создании поставки: " + e.getMessage(),
-                "Ошибка",
+                "Ура",
                 JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -262,7 +262,7 @@ public class Delivery extends JPanel {
             JOptionPane.showMessageDialog(
                 this,
                 "Ошибка загрузки позиций поставки: " + e.getMessage(),
-                "Ошибка",
+                "Упс",
                 JOptionPane.ERROR_MESSAGE
             );
         }

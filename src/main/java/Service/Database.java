@@ -22,60 +22,13 @@ public class Database {
     }
     
    
-
-
-
-//public void initializeDatabase() {
-//    String[] createTables = {
-//        "CREATE TABLE IF NOT EXISTS Components (" +
-//        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-//        "type TEXT NOT NULL CHECK(type IN ('wood', 'core'))," +  // Добавлено NOT NULL
-//        "name TEXT NOT NULL UNIQUE," +  // Добавлено UNIQUE для избежания дубликатов
-//        "quantity INTEGER NOT NULL DEFAULT 0 CHECK(quantity >= 0))",  // Добавлена проверка на отрицательные значения
-//
-//        "CREATE TABLE IF NOT EXISTS Wizards (" +
-//        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-//        "first_name TEXT NOT NULL," +
-//        "last_name TEXT NOT NULL," +
-//         
-//        "school TEXT," +
-//        "contact_info TEXT)",
-//
-//        "CREATE TABLE IF NOT EXISTS Wands (" +
-//        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-//        "creation_date DATE NOT NULL," +
-//        "price REAL NOT NULL CHECK(price > 0)," +  // Добавлена проверка на положительную цену
-//        "status TEXT NOT NULL DEFAULT 'available' CHECK(status IN ('available', 'sold'))," +  // Добавлено NOT NULL
-//        "wood_id INTEGER NOT NULL," +
-//        "core_id INTEGER NOT NULL," +
-//        "wizard_id INTEGER," +
-//        "sale_date DATE," +
-//        "FOREIGN KEY(wood_id) REFERENCES components(id) ON DELETE RESTRICT," +  // Добавлено действие при удалении
-//        "FOREIGN KEY(core_id) REFERENCES components(id) ON DELETE RESTRICT," +
-//        "FOREIGN KEY(wizard_id) REFERENCES wizards(id) ON DELETE SET NULL)",  // Добавлено действие при удалении
-//
-//        "CREATE TABLE IF NOT EXISTS Deliveries (" +
-//        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-//        "delivery_date DATE NOT NULL," +
-//        "supplier_name TEXT NOT NULL," +
-//        "is_seasonal BOOLEAN NOT NULL DEFAULT FALSE)",
-//
-//        "CREATE TABLE IF NOT EXISTS delivery_items (" +
-//        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-//        "delivery_id INTEGER NOT NULL," +
-//        "component_id INTEGER NOT NULL," +
-//        "quantity INTEGER NOT NULL CHECK(quantity > 0)," +  // Добавлена проверка на положительное количество
-//        "unit_price REAL NOT NULL CHECK(unit_price > 0)," +  // Добавлена проверка на положительную цену
-//        "FOREIGN KEY(delivery_id) REFERENCES deliveries(id) ON DELETE CASCADE," +  // Добавлено действие при удалении
-//        "FOREIGN KEY(component_id) REFERENCES components(id) ON DELETE RESTRICT)"  // Добавлено действие при удалении
-//    };
 public void initializeDatabase() {
     String[] createTables = {
         "CREATE TABLE IF NOT EXISTS Components (" +
         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-        "type TEXT NOT NULL CHECK(type IN ('wood', 'core'))," +  // Добавлено NOT NULL
-        "name TEXT NOT NULL UNIQUE," +  // Добавлено UNIQUE для избежания дубликатов
-        "quantity INTEGER NOT NULL DEFAULT 0 CHECK(quantity >= 0))",  // Добавлена проверка на отрицательные значения
+        "type TEXT NOT NULL CHECK(type IN ('wood', 'core'))," +  
+        "name TEXT NOT NULL UNIQUE," + 
+        "quantity INTEGER NOT NULL DEFAULT 0 CHECK(quantity >= 0))",  
 
         "CREATE TABLE IF NOT EXISTS Wizards (" +
         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -89,14 +42,14 @@ public void initializeDatabase() {
         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "creation_date DATE NOT NULL," +
         "price REAL NOT NULL CHECK(price > 0)," +  // Добавлена проверка на положительную цену
-        "status TEXT NOT NULL DEFAULT 'available' CHECK(status IN ('available', 'sold'))," +  // Добавлено NOT NULL
+        "status TEXT NOT NULL DEFAULT 'available' CHECK(status IN ('available', 'sold'))," +  
         "wood_id INTEGER NOT NULL," +
         "core_id INTEGER NOT NULL," +
         "wizard_id INTEGER," +
         "sale_date DATE," +
-        "FOREIGN KEY(wood_id) REFERENCES components(id) ON DELETE RESTRICT," +  // Добавлено действие при удалении
+        "FOREIGN KEY(wood_id) REFERENCES components(id) ON DELETE RESTRICT," +  
         "FOREIGN KEY(core_id) REFERENCES components(id) ON DELETE RESTRICT," +
-        "FOREIGN KEY(wizard_id) REFERENCES wizards(id) ON DELETE SET NULL)",  // Добавлено действие при удалении
+        "FOREIGN KEY(wizard_id) REFERENCES wizards(id) ON DELETE SET NULL)",  
 
         "CREATE TABLE IF NOT EXISTS Deliveries (" +
         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -108,10 +61,10 @@ public void initializeDatabase() {
         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "delivery_id INTEGER NOT NULL," +
         "component_id INTEGER NOT NULL," +
-        "quantity INTEGER NOT NULL CHECK(quantity > 0)," +  // Добавлена проверка на положительное количество
-        "unit_price REAL NOT NULL CHECK(unit_price > 0)," +  // Добавлена проверка на положительную цену
-        "FOREIGN KEY(delivery_id) REFERENCES deliveries(id) ON DELETE CASCADE," +  // Добавлено действие при удалении
-        "FOREIGN KEY(component_id) REFERENCES components(id) ON DELETE RESTRICT)"  // Добавлено действие при удалении
+        "quantity INTEGER NOT NULL CHECK(quantity > 0)," +  
+        "unit_price REAL NOT NULL CHECK(unit_price > 0)," +  
+        "FOREIGN KEY(delivery_id) REFERENCES deliveries(id) ON DELETE CASCADE," +  
+        "FOREIGN KEY(component_id) REFERENCES components(id) ON DELETE RESTRICT)"  
     };
 
 
