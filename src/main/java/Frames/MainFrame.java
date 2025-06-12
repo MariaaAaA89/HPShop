@@ -10,7 +10,7 @@ package Frames;
  *
  * @author Мария
  */
-//import com.mycompany.laba4.DatabaseManager;
+
 import GUI.Components;
 import GUI.Delivery;
 import GUI.Sales;

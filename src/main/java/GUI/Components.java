@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class Components extends JPanel {
     private final Database dbManager;
     private JTable componentsTable;
@@ -45,26 +46,35 @@ public class Components extends JPanel {
         add(buttonPanel, BorderLayout.NORTH);
 
         componentsTable = new JTable() {
+            // Увеличиваем высоту строк
             @Override
             public Dimension getPreferredScrollableViewportSize() {
                 return new Dimension(super.getPreferredScrollableViewportSize().width, getRowHeight() * 10);
             }
         };
 
-        componentsTable.setRowHeight(40);
+        // Устанавливаем высоту строк
+        componentsTable.setRowHeight(40); // Увеличиваем высоту строк до 40 пикселей
+
+        // Устанавливаем шрифт большего размера для лучшей читаемости
         componentsTable.setFont(new Font("Bahnschrift SemiBold SemiConden", Font.PLAIN, 14));
+
         componentsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane scrollPane = new JScrollPane(componentsTable);
+
         add(scrollPane, BorderLayout.CENTER);
     }
 
     private JTextField createWideTextField() {
         JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(250, 30));
-        textField.setFont(new Font("Bahnschrift SemiBold SemiConden", Font.PLAIN, 14));
+        textField.setFont(new Font("Arial", Font.PLAIN, 14));
         return textField;
     }
 
+
+
+    
     private void showAddComponentDialog() {
         JDialog dialog = new JDialog((Frame) SwingUtilities.getWindowAncestor(this), "Добавить компонент", true);
         dialog.setLayout(new BorderLayout());
@@ -173,26 +183,32 @@ public class Components extends JPanel {
             };
 
             componentsTable.setModel(model);
+
+            // Настраиваем ширину столбцов
             setColumnWidths();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(
                     this,
                     "Ошибка загрузки данных: " + e.getMessage(),
-                    "Упс",
+                    "Ошибка",
                     JOptionPane.ERROR_MESSAGE
             );
         }
     }
 
     private void setColumnWidths() {
-        componentsTable.getColumnModel().getColumn(0).setPreferredWidth(100);
-        componentsTable.getColumnModel().getColumn(1).setPreferredWidth(150);
-        componentsTable.getColumnModel().getColumn(2).setPreferredWidth(300);
-        componentsTable.getColumnModel().getColumn(3).setPreferredWidth(100);
+        // Устанавливаем предпочтительные ширины столбцов
+        componentsTable.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
+        componentsTable.getColumnModel().getColumn(1).setPreferredWidth(150); // Тип
+        componentsTable.getColumnModel().getColumn(2).setPreferredWidth(300); // Наименование
+        componentsTable.getColumnModel().getColumn(3).setPreferredWidth(100); // Количество
+
+        // Разрешаем растягивание только последнего столбца
         componentsTable.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
     }
 
+    // Остальные методы без изменений
     private JButton createStyledButton(String text) {
         JButton button = new JButton(text);
         button.setBackground(new Color(0, 120, 215));
@@ -227,4 +243,4 @@ public class Components extends JPanel {
             dbManager.addComponent(component);
         }
     }
-}
+}  
